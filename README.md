@@ -6,6 +6,8 @@ Unofficial [Spire](https://spire.io/) API client for node.js
 
 ## Usage
 
+Get your access token via the method explained in the [API documentation](http://developer.spire.io/docs/api-token)
+
 ### Install
 
 ```
