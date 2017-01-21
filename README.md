@@ -44,13 +44,90 @@ client.streaks().then(function(data) {
 
 ```
 
-### events
-[Documentation](http://developer.spire.io/docs/events)
+### br (beaths per minute)
+Returns br events, see [documentation](http://developer.spire.io/docs/events)
+Note: `date` is optional.
+```js
+
+client.br(date).then(function(data) {
+  console.log(JSON.stringify(data, null, 1))
+})
+
+```
+
+Example result:
+
+```json
+
+[
+  {"timestamp":1455454720,"value":16.94,"event_type":"br"},
+  {"timestamp":1455454760,"value":18.18,"event_type":"br"}
+]
+
+```
+
+### calories
+Returns calories events, see [documentation](http://developer.spire.io/docs/events)
+
+Note: `date` is optional.
 
 ```js
 
-client.events(date, type).then(function(data) {
+client.calories(date).then(function(data) {
   console.log(JSON.stringify(data, null, 1))
 })
+
+```
+Example result:
+
+```json
+
+[
+  {"timestamp":1455454720,"value":4.142012,"event_type":"calories"},
+  {"timestamp":1455454760,"value":2.075894,"event_type":"calories"}
+]
+```
+
+
+### steps
+Returns steps events, see [documentation](http://developer.spire.io/docs/events)
+
+Note: `date` is optional.
+```js
+
+client.steps(date).then(function(data) {
+  console.log(JSON.stringify(data, null, 1))
+})
+
+```
+Example result:
+
+```json
+
+[
+  {"timestamp":1455454720,"value":8,"event_type":"steps"},
+  {"timestamp":1455454760,"value":4,"event_type":"steps"}
+]
+
+```
+
+### events
+Returns combined br, calories and steps events.
+Note: `date` is optional.
+
+```js
+
+client.events(date).then(function(data) {
+  console.log(JSON.stringify(data, null, 1))
+})
+
+```
+Example result:
+
+```json
+[
+  {"timestamp":1455454720,"br":16.94,"calories":4.142012,"steps":8},
+  {"timestamp":1455454720,"br":18.18,"calories":2.075894,"steps":4},
+]
 
 ```

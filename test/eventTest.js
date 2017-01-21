@@ -52,7 +52,7 @@ describe('Events ', function () {
 
     it('should get breaths', function (done) {
 
-      client.events('20160214', 'br').then(function (response) {
+      client.br('20160214').then(function (response) {
         should.exist.response
         response.should.have.lengthOf(2)
         response[1].value.should.equal(18.18)
@@ -62,7 +62,7 @@ describe('Events ', function () {
 
     it('should get steps', function (done) {
 
-      client.events('20160214', 'steps').then(function (response) {
+      client.steps('20160214').then(function (response) {
         should.exist.response
         response.should.have.lengthOf(2)
         response[1].value.should.equal(4)
@@ -72,10 +72,22 @@ describe('Events ', function () {
 
     it('should get calories', function (done) {
 
-      client.events('20160214', 'calories').then(function (response) {
+      client.calories('20160214').then(function (response) {
         should.exist.response
         response.should.have.lengthOf(2)
         response[1].value.should.equal(2.075894)
+        done()
+      })
+    })
+
+    it('should get all events', function (done) {
+
+      client.events('20160214').then(function (response) {
+        should.exist.response
+        response.should.have.lengthOf(2)
+        response[1].br.should.equal(18.18)
+        response[1].calories.should.equal(2.075894)
+        response[1].steps.should.equal(4)
         done()
       })
     })
